@@ -1,0 +1,13 @@
+classes
+build/*
+out/*
+.settings/*
+.idea/
+.classpath
+.project
+*.iml
+*.iws
+*.ipr
+*.log
+TDDDemo.iml
+target/
