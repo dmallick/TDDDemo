@@ -1,13 +1,10 @@
 classes
-build/*
-out/*
 .settings/*
-.idea/
+.idea
 .classpath
 .project
 *.iml
 *.iws
 *.ipr
 *.log
-TDDDemo.iml
-target/
+target

@@ -1,20 +1,34 @@
 import com.tdd.devops.NumberToTextFormatter;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
-/**
- * Created by VH68 on 9/9/2016.
- */
 
 public class NumberToTextFormatterTest {
 
+    NumberToTextFormatter numberToTextFormatter;
+
+    @Before
+    public void before(){
+        numberToTextFormatter = new NumberToTextFormatter();
+    }
+
     @Test
     public void testIfTheClassExist(){
-        NumberToTextFormatter numberToTextFormatter = new NumberToTextFormatter();
-
         assertNotNull(numberToTextFormatter);
+    }
 
+    @Test
+    public void testIfInputIsValid(){
+        String inputData ="12345";
+        assertTrue( numberToTextFormatter.validateInput(inputData));
+    }
+
+    @After
+    public void after(){
+        numberToTextFormatter = null;
     }
 }
