@@ -67,7 +67,13 @@ public class NumberToTextFormatterTest {
     @Test
     public void testNumber100ToWord(){
         String unitPlaceNumber="100";
-        assertTrue(numberToTextFormatter.convertTillDecimalPlaceAbove20(unitPlaceNumber).equals("hundred"));
+        assertTrue(numberToTextFormatter.convertHundredNumber(unitPlaceNumber).equals("onehundred"));
+    }
+
+    @Test
+    public void testNumber700ToWord(){
+        String unitPlaceNumber="700";
+        assertTrue(numberToTextFormatter.convertHundredNumber(unitPlaceNumber).equals("sevenhundred"));
     }
 
     @After

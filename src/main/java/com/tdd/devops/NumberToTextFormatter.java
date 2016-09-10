@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NumberToTextFormatter {
+
     final static Logger logger = Logger.getLogger(NumberToTextFormatter.class);
     static Map<Integer, String> numToWordMap = new HashMap<Integer, String>();
     static Map<Integer, String> decimalNumToWordMap = new HashMap<Integer, String>();
@@ -15,10 +16,9 @@ public class NumberToTextFormatter {
         loadNumToWordMap();
     }
     public boolean validateInput(String inputData) {
-        logger.info("&&&&&&&");
         boolean isInputValid = false;
         try {
-            int number = Integer.parseInt(inputData);
+            Integer.parseInt(inputData);
             isInputValid = true;
         }catch (NumberFormatException e) {
 
@@ -73,6 +73,17 @@ public class NumberToTextFormatter {
                      .append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(1,2))));
 
         }
+        return wordValue.toString();
+    }
+
+    public String convertHundredNumber(String unitPlaceNumber) {
+        StringBuffer wordValue = new StringBuffer();
+
+        int number = Integer.parseInt(unitPlaceNumber);
+        if (number>99) {
+            wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append("hundred");
+        }
+
         return wordValue.toString();
     }
 }
