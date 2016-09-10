@@ -42,6 +42,12 @@ public class NumberToTextFunctionalTest {
     }
 
     @Test
+    public void testConversion21ToWord(){
+        String unitPlaceNumber="21";
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("twenty one"));
+    }
+
+    @Test
     public void testConversion99ToWord(){
         String unitPlaceNumber="99";
         assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("ninety nine"));
@@ -83,11 +89,7 @@ public class NumberToTextFunctionalTest {
         String unitPlaceNumber="9999";
         assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("nine thousand nine hundred ninety nine"));
     }
-    @Test
-    public void testConversion21ToWord(){
-        String unitPlaceNumber="21";
-        assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("twenty one"));
-    }
+
     @After
     public void after(){
         numberToTextFormatter = null;

@@ -1,3 +1,16 @@
+/**
+ *
+ * The objective of this class is to convert Number in String format into words. The design principle is to use this class as
+ * tool. The class is flexible in terms of adding more functionality. For example: Adding functionality for five digit numbers
+ *
+ * It's based on chain of responsibility design pattern
+ * loadNumToWordMap() is used to load the number to word mapping
+ * process() is the entry point for processing.
+ * convertThousandNumber() used to convert thousands and so on ...
+ *
+ * Currently it supports up to 9999
+ * **/
+
 package com.tdd.devops;
 
 
@@ -89,19 +102,19 @@ public class NumberToTextFormatter {
         decimalNumToWordMap.put(10, "hundred ");
     }
 
+    // Convert decimal number and below
     public String convertTillDecimalPlace(String unitPlaceNumber) {
         StringBuffer wordValue = new StringBuffer();
         int number = Integer.parseInt(unitPlaceNumber);
         if (number>20){
             wordValue.append(decimalNumToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1))))
                      .append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(1,2))));
-
         }else{
             wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber)));
         }
         return wordValue.toString();
     }
-
+    // Convert hundredth number and below
     public String convertHundredNumber(String unitPlaceNumber) {
         StringBuffer wordValue = new StringBuffer();
         wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append(" hundred ");
@@ -109,6 +122,7 @@ public class NumberToTextFormatter {
         return wordValue.toString();
     }
 
+    // Convert thousandth number and below
     public String convertThousandNumber(String unitPlaceNumber) {
         StringBuffer wordValue = new StringBuffer();
         wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append(" thousand ");
