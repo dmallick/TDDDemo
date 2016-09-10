@@ -83,6 +83,19 @@ public class NumberToTextFormatterTest {
     }
 
 
+    @Test
+    public void testNumber919ToWord(){
+        String unitPlaceNumber="919";
+        assertTrue(numberToTextFormatter.convertHundredNumber(unitPlaceNumber).equals("ninehundrednineteen"));
+    }
+
+    @Test
+    public void testNumber1919ToWord(){
+        String unitPlaceNumber="1919";
+        assertTrue(numberToTextFormatter.convertThousandNumber(unitPlaceNumber).equals("onethousandninehundrednineteen"));
+    }
+
+
     @After
     public void after(){
         numberToTextFormatter = null;
