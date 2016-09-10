@@ -3,6 +3,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -25,6 +26,48 @@ public class NumberToTextFormatterTest {
     public void testIfInputIsValid(){
         String inputData ="12345";
         assertTrue( numberToTextFormatter.validateInput(inputData));
+    }
+
+    @Test
+    public void testIfInputIsInvalid(){
+        String inputData ="12A345";
+        assertFalse( numberToTextFormatter.validateInput(inputData));
+    }
+
+    @Test
+    public void testConversionOfUnitNumberToWord(){
+        String unitPlaceNumber="9";
+        assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).equals("nine"));
+    }
+
+    @Test
+    public void testConversionOfDecimalNumberToWord(){
+        String unitPlaceNumber="19";
+        assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).equals("ninteen"));
+    }
+
+    @Test
+    public void testConversionOfDecimalNumberGT20ToWord(){
+        String unitPlaceNumber="21";
+        assertTrue(numberToTextFormatter.convertTillDecimalPlaceAbove20(unitPlaceNumber).equals("twentyone"));
+    }
+
+    @Test
+    public void testNumber35ToWord(){
+        String unitPlaceNumber="35";
+        assertTrue(numberToTextFormatter.convertTillDecimalPlaceAbove20(unitPlaceNumber).equals("thirtyfive"));
+    }
+
+    @Test
+    public void testNumber99ToWord(){
+        String unitPlaceNumber="99";
+        assertTrue(numberToTextFormatter.convertTillDecimalPlaceAbove20(unitPlaceNumber).equals("ninetynine"));
+    }
+
+    @Test
+    public void testNumber100ToWord(){
+        String unitPlaceNumber="100";
+        assertTrue(numberToTextFormatter.convertTillDecimalPlaceAbove20(unitPlaceNumber).equals("hundred"));
     }
 
     @After
