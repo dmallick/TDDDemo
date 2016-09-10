@@ -76,6 +76,13 @@ public class NumberToTextFormatterTest {
         assertTrue(numberToTextFormatter.convertHundredNumber(unitPlaceNumber).equals("sevenhundred"));
     }
 
+    @Test
+    public void testNumber938ToWord(){
+        String unitPlaceNumber="938";
+        assertTrue(numberToTextFormatter.convertHundredNumber(unitPlaceNumber).equals("ninehundredthirtyeight"));
+    }
+
+
     @After
     public void after(){
         numberToTextFormatter = null;

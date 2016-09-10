@@ -78,12 +78,13 @@ public class NumberToTextFormatter {
 
     public String convertHundredNumber(String unitPlaceNumber) {
         StringBuffer wordValue = new StringBuffer();
-
         int number = Integer.parseInt(unitPlaceNumber);
         if (number>99) {
             wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append("hundred");
+            if (Integer.parseInt(unitPlaceNumber.substring(1,3))>20){
+                wordValue.append(convertTillDecimalPlaceAbove20(unitPlaceNumber.substring(1,3)));
+            }
         }
-
         return wordValue.toString();
     }
 }
