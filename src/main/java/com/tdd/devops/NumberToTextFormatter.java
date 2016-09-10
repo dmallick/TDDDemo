@@ -103,30 +103,31 @@ public class NumberToTextFormatter {
     }
 
     // Convert decimal number and below
-    public String convertTillDecimalPlace(String unitPlaceNumber) {
+    public String convertTillDecimalPlace(String inputNumber) {
         StringBuffer wordValue = new StringBuffer();
-        int number = Integer.parseInt(unitPlaceNumber);
+        int number = Integer.parseInt(inputNumber);
         if (number>20){
-            wordValue.append(decimalNumToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1))))
-                     .append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(1,2))));
+            wordValue.append(decimalNumToWordMap.get(Integer.parseInt(inputNumber.substring(0,1))))
+                     .append(numToWordMap.get(Integer.parseInt(inputNumber.substring(1,2))));
         }else{
-            wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber)));
+            wordValue.append(numToWordMap.get(Integer.parseInt(inputNumber)));
         }
         return wordValue.toString();
     }
     // Convert hundredth number and below
-    public String convertHundredNumber(String unitPlaceNumber) {
+    public String convertHundredNumber(String inputNumber) {
         StringBuffer wordValue = new StringBuffer();
-        wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append(" hundred ");
-        wordValue.append(convertTillDecimalPlace(unitPlaceNumber.substring(1,3)));
+        wordValue.append(numToWordMap.get(Integer.parseInt(inputNumber.substring(0,1)))).append(" hundred ");
+        wordValue.append(convertTillDecimalPlace(inputNumber.substring(1,3)));
         return wordValue.toString();
     }
 
     // Convert thousandth number and below
-    public String convertThousandNumber(String unitPlaceNumber) {
+    public String convertThousandNumber(String inputNumber) {
+
         StringBuffer wordValue = new StringBuffer();
-        wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append(" thousand ");
-        wordValue.append(convertHundredNumber(unitPlaceNumber.substring(1,4)));
+        wordValue.append(numToWordMap.get(Integer.parseInt(inputNumber.substring(0,1)))).append(" thousand ");
+        wordValue.append(convertHundredNumber(inputNumber.substring(1,4)));
         return wordValue.toString();
     }
 }
