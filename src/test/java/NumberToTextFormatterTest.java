@@ -97,6 +97,12 @@ public class NumberToTextFormatterTest {
         assertTrue(numberToTextFormatter.convertThousandNumber(unitPlaceNumber).equals("one thousand nine hundred nineteen"));
     }
 
+    @Test
+    public void testNumber2919ToWord(){
+        String unitPlaceNumber="2919";
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).equals("two thousand nine hundred nineteen"));
+    }
+
     @After
     public void after(){
         numberToTextFormatter = null;

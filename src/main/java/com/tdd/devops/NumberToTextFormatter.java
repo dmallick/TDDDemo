@@ -26,6 +26,26 @@ public class NumberToTextFormatter {
         return isInputValid;
     }
 
+    public String process(String inputData){
+        String numberInWords ="";
+        switch (inputData.length()) {
+            case 4:
+                numberInWords = convertThousandNumber(inputData);
+                break;
+            case 3:
+                numberInWords = convertHundredNumber(inputData);
+                break;
+            case 2:
+                numberInWords = convertTillDecimalPlace(inputData);
+                break;
+            case 1:
+                numberInWords = convertTillDecimalPlace(inputData);
+                break;
+
+        }
+        return numberInWords;
+    }
+
 /*
     public String convertTillDecimalPlace(String unitPlaceNumber) {
         int number = Integer.parseInt(unitPlaceNumber);
