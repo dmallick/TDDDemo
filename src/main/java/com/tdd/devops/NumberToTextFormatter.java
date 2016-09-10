@@ -26,10 +26,12 @@ public class NumberToTextFormatter {
         return isInputValid;
     }
 
+/*
     public String convertTillDecimalPlace(String unitPlaceNumber) {
         int number = Integer.parseInt(unitPlaceNumber);
         return numToWordMap.get(number);
     }
+*/
 
 
     private static void loadNumToWordMap(){
@@ -56,18 +58,18 @@ public class NumberToTextFormatter {
         numToWordMap.put(20, "twenty");
 
         decimalNumToWordMap.put(0, "");
-        decimalNumToWordMap.put(2, "twenty");
-        decimalNumToWordMap.put(3, "thirty");
-        decimalNumToWordMap.put(4, "forty");
-        decimalNumToWordMap.put(5, "fifty");
-        decimalNumToWordMap.put(6, "sixty");
-        decimalNumToWordMap.put(7, "seventy");
-        decimalNumToWordMap.put(8, "eighty");
-        decimalNumToWordMap.put(9, "ninety");
-        decimalNumToWordMap.put(10, "hundred");
+        decimalNumToWordMap.put(2, "twenty ");
+        decimalNumToWordMap.put(3, "thirty ");
+        decimalNumToWordMap.put(4, "forty ");
+        decimalNumToWordMap.put(5, "fifty ");
+        decimalNumToWordMap.put(6, "sixty ");
+        decimalNumToWordMap.put(7, "seventy ");
+        decimalNumToWordMap.put(8, "eighty ");
+        decimalNumToWordMap.put(9, "ninety ");
+        decimalNumToWordMap.put(10, "hundred ");
     }
 
-    public String convertTillDecimalPlaceAbove20(String unitPlaceNumber) {
+    public String convertTillDecimalPlace(String unitPlaceNumber) {
         StringBuffer wordValue = new StringBuffer();
         int number = Integer.parseInt(unitPlaceNumber);
         if (number>20){
@@ -77,28 +79,20 @@ public class NumberToTextFormatter {
         }else{
             wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber)));
         }
-
         return wordValue.toString();
     }
 
     public String convertHundredNumber(String unitPlaceNumber) {
         StringBuffer wordValue = new StringBuffer();
-        int number = Integer.parseInt(unitPlaceNumber);
-        if (number>99) {
-            wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append("hundred");
-                wordValue.append(convertTillDecimalPlaceAbove20(unitPlaceNumber.substring(1,3)));
-        }
+        wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append(" hundred ");
+        wordValue.append(convertTillDecimalPlace(unitPlaceNumber.substring(1,3)));
         return wordValue.toString();
     }
 
     public String convertThousandNumber(String unitPlaceNumber) {
         StringBuffer wordValue = new StringBuffer();
-        int number = Integer.parseInt(unitPlaceNumber);
-        if (number>999) {
-            wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append("thousand");
-            wordValue.append(convertHundredNumber(unitPlaceNumber.substring(1,4)));
-           // wordValue.append(convertTillDecimalPlaceAbove20(unitPlaceNumber.substring(1,3)));
-        }
+        wordValue.append(numToWordMap.get(Integer.parseInt(unitPlaceNumber.substring(0,1)))).append(" thousand ");
+        wordValue.append(convertHundredNumber(unitPlaceNumber.substring(1,4)));
         return wordValue.toString();
     }
 }
