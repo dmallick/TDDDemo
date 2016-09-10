@@ -33,6 +33,7 @@ public class NumberToTextFormatter {
 
 
     private static void loadNumToWordMap(){
+        numToWordMap.put(0, "");
         numToWordMap.put(1, "one");
         numToWordMap.put(2, "two");
         numToWordMap.put(3, "three");
@@ -54,6 +55,7 @@ public class NumberToTextFormatter {
         numToWordMap.put(19, "nineteen");
         numToWordMap.put(20, "twenty");
 
+        decimalNumToWordMap.put(0, "");
         decimalNumToWordMap.put(2, "twenty");
         decimalNumToWordMap.put(3, "thirty");
         decimalNumToWordMap.put(4, "forty");

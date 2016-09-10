@@ -43,7 +43,7 @@ public class NumberToTextFormatterTest {
     @Test
     public void testConversionOfDecimalNumberToWord(){
         String unitPlaceNumber="19";
-        assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).equals("ninteen"));
+        assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).equals("nineteen"));
     }
 
     @Test
