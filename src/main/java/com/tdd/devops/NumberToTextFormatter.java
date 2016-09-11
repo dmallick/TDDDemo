@@ -8,7 +8,7 @@
  * process() is the entry point for processing.
  * convertThousandNumber() used to convert thousands and so on ...
  *
- * Currently it supports up to 9999
+ * Currently it supports up to 99999
  * **/
 
 package com.tdd.devops;
@@ -42,6 +42,9 @@ public class NumberToTextFormatter {
     public String process(String inputData){
         String numberInWords ="";
         switch (inputData.length()) {
+            case 5 :
+                numberInWords = convertThousandNumber(inputData);
+                break;
             case 4:
                 numberInWords = convertThousandNumber(inputData);
                 break;
@@ -117,17 +120,24 @@ public class NumberToTextFormatter {
     // Convert hundredth number and below
     public String convertHundredNumber(String inputNumber) {
         StringBuffer wordValue = new StringBuffer();
-        wordValue.append(numToWordMap.get(Integer.parseInt(inputNumber.substring(0,1)))).append(" hundred ");
-        wordValue.append(convertTillDecimalPlace(inputNumber.substring(1,3)));
+        int hundredthPositionValue = Integer.parseInt(inputNumber.substring(0,1));
+        if (hundredthPositionValue!=0) {
+            wordValue.append(numToWordMap.get(Integer.parseInt(inputNumber.substring(0, 1)))).append(" hundred ");
+        }
+        wordValue.append(convertTillDecimalPlace(inputNumber.substring(1, 3)));
         return wordValue.toString();
     }
 
     // Convert thousandth number and below
     public String convertThousandNumber(String inputNumber) {
-
         StringBuffer wordValue = new StringBuffer();
-        wordValue.append(numToWordMap.get(Integer.parseInt(inputNumber.substring(0,1)))).append(" thousand ");
-        wordValue.append(convertHundredNumber(inputNumber.substring(1,4)));
+        if ((inputNumber.length())==5){
+            wordValue.append(convertTillDecimalPlace(inputNumber.substring(0,2))).append(" thousand ");
+            wordValue.append(convertHundredNumber(inputNumber.substring(2, 5)));
+        }else {
+            wordValue.append(numToWordMap.get(Integer.parseInt(inputNumber.substring(0, 1)))).append(" thousand ");
+            wordValue.append(convertHundredNumber(inputNumber.substring(1, 4)));
+        }
         return wordValue.toString();
     }
 }

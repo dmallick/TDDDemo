@@ -34,7 +34,6 @@ public class NumberToTextFormatterTest {
         assertFalse( numberToTextFormatter.validateInput(inputData));
     }
 
-/*
     @Test
     public void testConversionOfUnitNumberToWord(){
         String unitPlaceNumber="9";
@@ -46,7 +45,6 @@ public class NumberToTextFormatterTest {
         String unitPlaceNumber="19";
         assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).equals("nineteen"));
     }
-*/
 
     @Test
     public void testConversionOfDecimalNumberGT20ToWord(){

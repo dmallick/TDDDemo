@@ -85,10 +85,28 @@ public class NumberToTextFunctionalTest {
     }
 
     @Test
+    public void testConversion9099ToWord(){
+        String unitPlaceNumber="9099";
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("nine thousand ninety nine"));
+    }
+    @Test
     public void testConversion9999ToWord(){
         String unitPlaceNumber="9999";
         assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("nine thousand nine hundred ninety nine"));
     }
+
+    @Test
+    public void testConversion90999ToWord(){
+        String unitPlaceNumber="90999";
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("ninety thousand nine hundred ninety nine"));
+    }
+
+    @Test
+    public void testConversion99999ToWord(){
+        String unitPlaceNumber="99999";
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("ninety nine thousand nine hundred ninety nine"));
+    }
+
 
     @After
     public void after(){
