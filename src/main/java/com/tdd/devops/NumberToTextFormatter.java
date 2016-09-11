@@ -14,19 +14,19 @@
 package com.tdd.devops;
 
 
-import org.apache.log4j.Logger;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class NumberToTextFormatter {
 
-    final static Logger logger = Logger.getLogger(NumberToTextFormatter.class);
-    static Map<Integer, String> numToWordMap = new HashMap<Integer, String>();
-    static Map<Integer, String> decimalNumToWordMap = new HashMap<Integer, String>();
+    private static Map<Integer, String> numToWordMap;
+    private static Map<Integer, String> decimalNumToWordMap;
 
     static {
+        decimalNumToWordMap = new HashMap<Integer, String>();
+        numToWordMap = new HashMap<Integer, String>();
         loadNumToWordMap();
+
     }
     public boolean validateInput(String inputData) {
         boolean isInputValid = false;
@@ -40,8 +40,15 @@ public class NumberToTextFormatter {
     }
 
     public String process(String inputData){
-        String numberInWords ="";
-        switch (inputData.length()) {
+        Map<Integer, NumberToTextHandler> commandMap = new HashMap();
+        commandMap.put(1, new UnitAndTenthHandler());
+        commandMap.put(2, new UnitAndTenthHandler());
+        commandMap.put(3, new HundredthHandler());
+        commandMap.put(4, new ThousandthHandler());
+        commandMap.put(5, new ThousandthHandler());
+        String numberInWords = commandMap.get(inputData.length()).convert(inputData);
+
+        /*switch (inputData.length()) {
             case 5 :
                 numberInWords = convertThousandPlace(inputData);
                 break;
@@ -57,8 +64,7 @@ public class NumberToTextFormatter {
             case 1:
                 numberInWords = convertUnitAndDecimalPlace(inputData);
                 break;
-
-        }
+        }*/
         return numberInWords;
     }
 
