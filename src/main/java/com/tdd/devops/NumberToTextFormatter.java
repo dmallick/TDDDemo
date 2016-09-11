@@ -6,7 +6,7 @@
  * It's based on chain of responsibility design pattern
  * loadNumToWordMap() is used to load the number to word mapping
  * process() is the entry point for processing.
- * convertThousandNumber() used to convert thousands and so on ...
+ * convertThousandPlace() used to convert thousands and so on ...
  *
  * Currently it supports up to 99999
  * **/
@@ -43,19 +43,19 @@ public class NumberToTextFormatter {
         String numberInWords ="";
         switch (inputData.length()) {
             case 5 :
-                numberInWords = convertThousandNumber(inputData);
+                numberInWords = convertThousandPlace(inputData);
                 break;
             case 4:
-                numberInWords = convertThousandNumber(inputData);
+                numberInWords = convertThousandPlace(inputData);
                 break;
             case 3:
-                numberInWords = convertHundredNumber(inputData);
+                numberInWords = convertHundredPlace(inputData);
                 break;
             case 2:
-                numberInWords = convertTillDecimalPlace(inputData);
+                numberInWords = convertUnitAndDecimalPlace(inputData);
                 break;
             case 1:
-                numberInWords = convertTillDecimalPlace(inputData);
+                numberInWords = convertUnitAndDecimalPlace(inputData);
                 break;
 
         }
@@ -63,7 +63,7 @@ public class NumberToTextFormatter {
     }
 
 /*
-    public String convertTillDecimalPlace(String unitPlaceNumber) {
+    public String convertUnitAndDecimalPlace(String unitPlaceNumber) {
         int number = Integer.parseInt(unitPlaceNumber);
         return numToWordMap.get(number);
     }
@@ -106,7 +106,7 @@ public class NumberToTextFormatter {
     }
 
     // Convert decimal number and below
-    public String convertTillDecimalPlace(String inputNumber) {
+    public String convertUnitAndDecimalPlace(String inputNumber) {
         StringBuffer wordValue = new StringBuffer();
         int number = Integer.parseInt(inputNumber);
         if (number>20){
@@ -118,25 +118,25 @@ public class NumberToTextFormatter {
         return wordValue.toString();
     }
     // Convert hundredth number and below
-    public String convertHundredNumber(String inputNumber) {
+    public String convertHundredPlace(String inputNumber) {
         StringBuffer wordValue = new StringBuffer();
         int hundredthPositionValue = Integer.parseInt(inputNumber.substring(0,1));
         if (hundredthPositionValue!=0) {
             wordValue.append(numToWordMap.get(Integer.parseInt(inputNumber.substring(0, 1)))).append(" hundred ");
         }
-        wordValue.append(convertTillDecimalPlace(inputNumber.substring(1, 3)));
+        wordValue.append(convertUnitAndDecimalPlace(inputNumber.substring(1, 3)));
         return wordValue.toString();
     }
 
     // Convert thousandth number and below
-    public String convertThousandNumber(String inputNumber) {
+    public String convertThousandPlace(String inputNumber) {
         StringBuffer wordValue = new StringBuffer();
         if ((inputNumber.length())==5){
-            wordValue.append(convertTillDecimalPlace(inputNumber.substring(0,2))).append(" thousand ");
-            wordValue.append(convertHundredNumber(inputNumber.substring(2, 5)));
+            wordValue.append(convertUnitAndDecimalPlace(inputNumber.substring(0,2))).append(" thousand ");
+            wordValue.append(convertHundredPlace(inputNumber.substring(2, 5)));
         }else {
             wordValue.append(numToWordMap.get(Integer.parseInt(inputNumber.substring(0, 1)))).append(" thousand ");
-            wordValue.append(convertHundredNumber(inputNumber.substring(1, 4)));
+            wordValue.append(convertHundredPlace(inputNumber.substring(1, 4)));
         }
         return wordValue.toString();
     }

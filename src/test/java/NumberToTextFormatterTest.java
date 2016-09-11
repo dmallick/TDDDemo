@@ -37,62 +37,62 @@ public class NumberToTextFormatterTest {
     @Test
     public void testConversionOfUnitNumberToWord(){
         String unitPlaceNumber="9";
-        assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).equals("nine"));
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).equals("nine"));
     }
 
     @Test
     public void testConversionOfDecimalNumberToWord(){
         String unitPlaceNumber="19";
-        assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).equals("nineteen"));
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).equals("nineteen"));
     }
 
     @Test
     public void testConversionOfDecimalNumberGT20ToWord(){
         String unitPlaceNumber="21";
-        assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).trim().equals("twenty one"));
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("twenty one"));
     }
 
     @Test
     public void testNumber35ToWord(){
         String unitPlaceNumber="35";
-        assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).trim().equals("thirty five"));
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("thirty five"));
     }
 
     @Test
     public void testNumber99ToWord(){
         String unitPlaceNumber="99";
-        assertTrue(numberToTextFormatter.convertTillDecimalPlace(unitPlaceNumber).trim().equals("ninety nine"));
+        assertTrue(numberToTextFormatter.process(unitPlaceNumber).trim().equals("ninety nine"));
     }
 
     @Test
     public void testNumber100ToWord(){
         String unitPlaceNumber="100";
-        assertTrue(numberToTextFormatter.convertHundredNumber(unitPlaceNumber).trim().equals("one hundred"));
+        assertTrue(numberToTextFormatter.convertHundredPlace(unitPlaceNumber).trim().equals("one hundred"));
     }
 
     @Test
     public void testNumber700ToWord(){
         String unitPlaceNumber="700";
-        assertTrue(numberToTextFormatter.convertHundredNumber(unitPlaceNumber).trim().equals("seven hundred"));
+        assertTrue(numberToTextFormatter.convertHundredPlace(unitPlaceNumber).trim().equals("seven hundred"));
     }
 
     @Test
     public void testNumber938ToWord(){
         String unitPlaceNumber="938";
-        assertTrue(numberToTextFormatter.convertHundredNumber(unitPlaceNumber).trim().equals("nine hundred thirty eight"));
+        assertTrue(numberToTextFormatter.convertHundredPlace(unitPlaceNumber).trim().equals("nine hundred thirty eight"));
     }
 
 
     @Test
     public void testNumber919ToWord(){
         String unitPlaceNumber="919";
-        assertTrue(numberToTextFormatter.convertHundredNumber(unitPlaceNumber).trim().equals("nine hundred nineteen"));
+        assertTrue(numberToTextFormatter.convertHundredPlace(unitPlaceNumber).trim().equals("nine hundred nineteen"));
     }
 
     @Test
     public void testNumber1919ToWord(){
         String unitPlaceNumber="1919";
-        assertTrue(numberToTextFormatter.convertThousandNumber(unitPlaceNumber).equals("one thousand nine hundred nineteen"));
+        assertTrue(numberToTextFormatter.convertThousandPlace(unitPlaceNumber).equals("one thousand nine hundred nineteen"));
     }
 
     @Test
