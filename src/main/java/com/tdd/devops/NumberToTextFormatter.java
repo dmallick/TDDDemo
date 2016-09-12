@@ -39,7 +39,7 @@ public class NumberToTextFormatter {
         commandMap.put(5, new ThousandthHandler());
         String numberInWords = commandMap.get(inputData.length()).convert(inputData);
 
-        return numberInWords;
+        return numberInWords.trim();
     }
 
 
