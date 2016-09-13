@@ -24,8 +24,8 @@ public class CheckoutHandler {
             applePriceMap.put(Integer.valueOf(1),Integer.valueOf((50)));
             applePriceMap.put(Integer.valueOf(3),Integer.valueOf((125)));
 
-            applePriceMap.put(Integer.valueOf(1),Integer.valueOf((40)));
-            applePriceMap.put(Integer.valueOf(2),Integer.valueOf((70)));
+            orangePriceMap.put(Integer.valueOf(1),Integer.valueOf((40)));
+            orangePriceMap.put(Integer.valueOf(2),Integer.valueOf((70)));
 
             mangoPriceMap.put(Integer.valueOf(1),Integer.valueOf((65)));
             mangoPriceMap.put(Integer.valueOf(3),Integer.valueOf((150)));

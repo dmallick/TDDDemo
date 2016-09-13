@@ -27,7 +27,32 @@ public class CheckoutHandlerTest {
     }
 
     @Test
-    public void testIfSingleApplePriceIsCorrect(){
+    public void testIf1ApplePriceIsCorrect(){
         assertTrue(checkoutHandler.getPrice("Apple") == 50);
+    }
+
+    @Test
+    public void testIf3ApplePriceIsCorrect(){
+        assertTrue(checkoutHandler.getPrice("Apple") == 125);
+    }
+
+    @Test
+    public void testIf1OrangePriceIsCorrect(){
+        assertTrue(checkoutHandler.getPrice("Orange") == 40);
+    }
+
+    @Test
+    public void testIf2OrangePriceIsCorrect(){
+        assertTrue(checkoutHandler.getPrice("Orange") == 70);
+    }
+
+    @Test
+    public void testIf1MangoPriceIsCorrect(){
+        assertTrue(checkoutHandler.getPrice("Mango") == 65);
+    }
+
+    @Test
+    public void testIf3MangoPriceIsCorrect(){
+        assertTrue(checkoutHandler.getPrice("Mango") == 150);
     }
 }
