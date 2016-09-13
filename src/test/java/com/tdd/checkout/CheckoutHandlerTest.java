@@ -5,6 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -12,9 +15,12 @@ import static org.junit.Assert.assertTrue;
 public class CheckoutHandlerTest {
 
     CheckoutHandler checkoutHandler;
-
+    List<String> productList;
     @Before
-    public void before(){ checkoutHandler = new CheckoutHandler();    }
+    public void before(){
+
+        checkoutHandler = new CheckoutHandler();
+    }
 
     @Test
     public void testIfCheckoutClassExist(){
@@ -28,31 +34,50 @@ public class CheckoutHandlerTest {
 
     @Test
     public void testIf1ApplePriceIsCorrect(){
-        assertTrue(checkoutHandler.getPrice("Apple") == 50);
+        productList = new ArrayList();
+        productList.add("Apple");
+        assertTrue(checkoutHandler.calculatePrice(productList) ==50);
     }
 
     @Test
     public void testIf3ApplePriceIsCorrect(){
-        assertTrue(checkoutHandler.getPrice("Apple") == 125);
+        productList = new ArrayList();
+        productList.add("Apple");
+        productList.add("Apple");
+        productList.add("Apple");
+        assertTrue(checkoutHandler.calculatePrice(productList) == 125);
     }
 
     @Test
     public void testIf1OrangePriceIsCorrect(){
-        assertTrue(checkoutHandler.getPrice("Orange") == 40);
+        productList = new ArrayList();
+        productList.add("Orange");
+
+        assertTrue(checkoutHandler.calculatePrice(productList) == 40);
     }
 
     @Test
     public void testIf2OrangePriceIsCorrect(){
-        assertTrue(checkoutHandler.getPrice("Orange") == 70);
+        productList = new ArrayList();
+        productList.add("Orange");
+        productList.add("Orange");
+        assertTrue(checkoutHandler.calculatePrice(productList) == 70);
     }
 
     @Test
     public void testIf1MangoPriceIsCorrect(){
-        assertTrue(checkoutHandler.getPrice("Mango") == 65);
+        productList = new ArrayList();
+        productList.add("Mango");
+
+        assertTrue(checkoutHandler.calculatePrice(productList) == 65);
     }
 
     @Test
     public void testIf3MangoPriceIsCorrect(){
-        assertTrue(checkoutHandler.getPrice("Mango") == 150);
+        productList = new ArrayList();
+        productList.add("Mango");
+        productList.add("Mango");
+        productList.add("Mango");
+        assertTrue(checkoutHandler.calculatePrice(productList) == 150);
     }
 }

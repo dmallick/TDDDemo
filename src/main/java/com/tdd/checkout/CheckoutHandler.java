@@ -1,6 +1,7 @@
 package com.tdd.checkout;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CheckoutHandler {
@@ -40,7 +41,17 @@ public class CheckoutHandler {
     }
 
 
-    public int getPrice(String apple) {
-        return productPriceMap.get(apple).get(1);
+    public int getPrice(String apple, int numbers) {
+        return productPriceMap.get(apple).get(numbers);
     }
+
+    public int calculatePrice(List<String> productList) {
+        int totalPrice = 0;
+        for (String product: productList){
+            totalPrice = productPriceMap.get(product).get(productList.size());
+        }
+        return totalPrice;
+    }
+
+
 }
