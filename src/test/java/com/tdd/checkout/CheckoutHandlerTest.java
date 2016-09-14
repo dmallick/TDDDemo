@@ -88,7 +88,7 @@ public class CheckoutHandlerTest {
         productList.add("Orange");
         productList.add("Apple");
 
-        assertTrue(checkoutHandler.calculatePrice(productList) == 65);
+        assertTrue(checkoutHandler.calculatePrice(productList) == 155);
     }
 
 }
