@@ -80,4 +80,15 @@ public class CheckoutHandlerTest {
         productList.add("Mango");
         assertTrue(checkoutHandler.calculatePrice(productList) == 150);
     }
+
+    @Test
+    public void testIf1MangoOrangeAndApplePriceIsCorrect(){
+        productList = new ArrayList();
+        productList.add("Mango");
+        productList.add("Orange");
+        productList.add("Apple");
+
+        assertTrue(checkoutHandler.calculatePrice(productList) == 65);
+    }
+
 }
