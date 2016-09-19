@@ -1,6 +1,6 @@
 package com.tdd.checkout;
 
-import com.tdd.rockpaperscissors.Rock;
+import com.tdd.rockpaperscissors.models.Rock;
 import com.tdd.rockpaperscissors.RockPaperScissors;
 import com.tdd.rockpaperscissors.models.Paper;
 import com.tdd.rockpaperscissors.models.Scissor;
@@ -33,4 +33,8 @@ public class RockPaperScissorsTest {
         assertTrue(rockPaperScissors.executeRP(new Paper(), new Rock()).equals("Paper"));
     }
 
+    @Test
+    public void rockWinsBetweenRockAndScissor(){
+        assertTrue(rockPaperScissors.executeRP(new Rock(), new Scissor()).equals("Rock"));
+    }
 }
