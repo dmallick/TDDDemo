@@ -48,13 +48,18 @@ public class CheckoutHandler {
     public int calculatePrice(List<String> productList) {
         Map<String, Integer> productNumberMap = new HashMap();
         int totalPrice = 0;
+        int numberOfProduct= 1;
         for (String product: productList){
-            productNumberMap.put(product, productNumberMap.get(product)+1);
+            if (productNumberMap.get(product) == null) {
+                numberOfProduct = 0;
+                productNumberMap.put(product, ++numberOfProduct);
+            }else
+            productNumberMap.put(product, ++numberOfProduct);
         }
-        /*for (String productKey: productNumberMap.keySet()){
-            productPriceMap.get(productKey).get(numbers)
+        for (String product: productNumberMap.keySet()){
+            totalPrice = totalPrice + productPriceMap.get(product).get(productNumberMap.get(product));
         }
-        totalPrice = productPriceMap.get(apple).get(numbers)*/
+        //totalPrice = productPriceMap.get(apple).get(numbers)
 
         return totalPrice;
     }

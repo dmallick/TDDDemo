@@ -18,7 +18,6 @@ public class CheckoutHandlerTest {
     List<String> productList;
     @Before
     public void before(){
-
         checkoutHandler = new CheckoutHandler();
     }
 
@@ -40,7 +39,7 @@ public class CheckoutHandlerTest {
     }
 
     @Test
-    public void testIf3ApplePriceIsCorrect(){
+    public void testIf3ApplesPriceIsCorrect(){
         productList = new ArrayList();
         productList.add("Apple");
         productList.add("Apple");
@@ -88,7 +87,19 @@ public class CheckoutHandlerTest {
         productList.add("Orange");
         productList.add("Apple");
 
-        assertTrue(checkoutHandler.calculatePrice(productList) == 65);
+        assertTrue(checkoutHandler.calculatePrice(productList) == 155);
+    }
+
+    @Test
+    public void testIf1Mango2OrangeAnd3ApplePriceIsCorrect(){
+        productList = new ArrayList();
+        productList.add("Mango");
+        productList.add("Orange");
+        productList.add("Orange");
+        productList.add("Apple");
+        productList.add("Apple");
+        productList.add("Apple");
+        assertTrue(checkoutHandler.calculatePrice(productList) == 260);
     }
 
 }
