@@ -1,11 +1,12 @@
 package com.tdd.ballsampling;
 
+import java.util.List;
+
 /**
  * Created by dmalli on 10/3/2016.
  */
 public class BallSorter {
-    public int sort(int num1, int num2) {
-
-        return (num1>num2?num1:num2);
+    public int compare(List<Integer> integerList) {
+        return (integerList.get(0)>integerList.get(1)?integerList.get(0):integerList.get(1));
     }
 }
