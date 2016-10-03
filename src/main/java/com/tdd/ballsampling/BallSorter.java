@@ -12,7 +12,6 @@ public class BallSorter {
 
         for (int num: integerList){
             biggerNumber = num>biggerNumber?num:biggerNumber;
-            //integerList.get(0)>integerList.get(1)?integerList.get(0):integerList.get(1)
         }
         return biggerNumber;
     }

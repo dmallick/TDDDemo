@@ -27,4 +27,15 @@ public class BallSorterTest {
         List<Integer> integerList = Arrays.asList(1,2,3);
         assertEquals(new BallSorter().compare(integerList), 3);
     }
+
+    @Test
+    public void returnBiggerNumberFrom4Numbers(){
+        List<Integer> integerList = Arrays.asList(999,123,876,397);
+        assertEquals(new BallSorter().compare(integerList), 999);
+    }
+
+    public void printSortednumbers(){
+        List<Integer> integerList = Arrays.asList(999,123,876,397);
+        System.out.println(new BallSorter().compare(integerList), 999));
+    }
 }
