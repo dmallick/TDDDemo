@@ -25,9 +25,7 @@ public class BallSorterTest {
 
     @Test
     public void returnBiggerNumberFrom3Numbers(){
-        int num1 =1;
-        int num2 =2;
-        int num3 =3;
-        //assertTrue(new BallSorter().compare(num1)==1);
+        List<Integer> integerList = Arrays.asList(1,2,3);
+        assertTrue(new BallSorter().compare(integerList)==3);
     }
 }
