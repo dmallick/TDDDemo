@@ -7,8 +7,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class BallSorterTest {
 
@@ -26,6 +25,6 @@ public class BallSorterTest {
     @Test
     public void returnBiggerNumberFrom3Numbers(){
         List<Integer> integerList = Arrays.asList(1,2,3);
-        assertTrue(new BallSorter().compare(integerList)==3);
+        assertEquals(new BallSorter().compare(integerList), 3);
     }
 }

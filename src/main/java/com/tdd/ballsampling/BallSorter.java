@@ -7,6 +7,13 @@ import java.util.List;
  */
 public class BallSorter {
     public int compare(List<Integer> integerList) {
-        return (integerList.get(0)>integerList.get(1)?integerList.get(0):integerList.get(1));
+        int biggerNumber=0;
+        int smallerNumber=0;
+
+        for (int num: integerList){
+            biggerNumber = num>biggerNumber?num:biggerNumber;
+            //integerList.get(0)>integerList.get(1)?integerList.get(0):integerList.get(1)
+        }
+        return biggerNumber;
     }
 }
