@@ -17,26 +17,28 @@ public class BallSorterTest {
     }
 
     @Test
-    public void returnBiggerNumberFrom2Numbers(){
+    public void sort2Numbers(){
         List<Integer> integerList = Arrays.asList(1,2);
         assertEquals(new BallSorter().compare(integerList).toString(), "[1, 2]");
     }
 
     @Test
-    public void returnBiggerNumberFrom3Numbers(){
+    public void sort3Numbers(){
         List<Integer> integerList = Arrays.asList(1,2,3);
         assertEquals(new BallSorter().compare(integerList).toString(), "[1, 2, 3]");
     }
 
     @Test
-    public void returnBiggerNumberFrom4Numbers(){
+    public void sort4Numbers(){
         List<Integer> integerList = Arrays.asList(999,123,876,397);
         assertEquals(new BallSorter().compare(integerList).toString(), "[123, 397, 876, 999]");
     }
 
-/*    @Test
-    public void printSortedNumbers(){
-        List<Integer> integerList = Arrays.asList(999,123,876,397);
-        new BallSorter().compare(integerList);
-    }*/
+
+    @Test
+    public void sort5Numbers(){
+        List<Integer> integerList = Arrays.asList(500,400,300,200,100);
+        assertEquals(new BallSorter().compare(integerList).toString(), "[100, 200, 300, 400, 500]");
+    }
+
 }

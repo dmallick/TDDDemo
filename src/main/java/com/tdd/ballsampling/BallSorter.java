@@ -5,7 +5,7 @@ import java.util.List;
 
 public class BallSorter {
 
-    List<Integer> sortedList;// = new ArrayList();
+    List<Integer> sortedList;
     int previousSmallerNumber=0;
     public List<Integer> compare(List<Integer> integerList) {
         previousSmallerNumber=0;
