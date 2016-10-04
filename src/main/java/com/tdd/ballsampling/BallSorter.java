@@ -12,6 +12,7 @@ public class BallSorter {
     List<Integer> sortedList;// = new ArrayList();
     int previousSmallerNumber=0;
     public int compare(List<Integer> integerList) {
+        previousSmallerNumber=0;
         sortedList = new ArrayList();
         boolean shouldIterate = false;
         int biggerNumber = integerList.get(0);
