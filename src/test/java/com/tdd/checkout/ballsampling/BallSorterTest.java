@@ -34,8 +34,9 @@ public class BallSorterTest {
         assertEquals(new BallSorter().compare(integerList), 999);
     }
 
-    public void printSortednumbers(){
+    @Test
+    public void printSortedNumbers(){
         List<Integer> integerList = Arrays.asList(999,123,876,397);
-        System.out.println(new BallSorter().compare(integerList), 999));
+        new BallSorter().compare(integerList);
     }
 }
