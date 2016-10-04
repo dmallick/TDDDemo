@@ -18,13 +18,13 @@ public class BallSorterTest {
 
     @Test
     public void sort2Numbers(){
-        List<Integer> integerList = Arrays.asList(1,2);
+        List<Integer> integerList = Arrays.asList(2,1);
         assertEquals(new BallSorter().compare(integerList).toString(), "[1, 2]");
     }
 
     @Test
     public void sort3Numbers(){
-        List<Integer> integerList = Arrays.asList(1,2,3);
+        List<Integer> integerList = Arrays.asList(2,3,1);
         assertEquals(new BallSorter().compare(integerList).toString(), "[1, 2, 3]");
     }
 
