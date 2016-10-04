@@ -1,17 +1,13 @@
 package com.tdd.ballsampling;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by dmalli on 10/3/2016.
- */
 public class BallSorter {
 
     List<Integer> sortedList;// = new ArrayList();
     int previousSmallerNumber=0;
-    public int compare(List<Integer> integerList) {
+    public List<Integer> compare(List<Integer> integerList) {
         previousSmallerNumber=0;
         sortedList = new ArrayList();
         boolean shouldIterate = false;
@@ -36,7 +32,8 @@ public class BallSorter {
             integerList = new ArrayList();
             compare(tempList);
         }
-        return biggerNumber;
+
+        return sortedList;
     }
 
     private void addNumberToList(int smallerNumber) {

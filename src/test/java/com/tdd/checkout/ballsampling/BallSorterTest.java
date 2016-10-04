@@ -19,24 +19,24 @@ public class BallSorterTest {
     @Test
     public void returnBiggerNumberFrom2Numbers(){
         List<Integer> integerList = Arrays.asList(1,2);
-        assertTrue(new BallSorter().compare(integerList)==2);
+        assertEquals(new BallSorter().compare(integerList).toString(), "[1, 2]");
     }
 
     @Test
     public void returnBiggerNumberFrom3Numbers(){
         List<Integer> integerList = Arrays.asList(1,2,3);
-        assertEquals(new BallSorter().compare(integerList), 3);
+        assertEquals(new BallSorter().compare(integerList).toString(), "[1, 2, 3]");
     }
 
     @Test
     public void returnBiggerNumberFrom4Numbers(){
         List<Integer> integerList = Arrays.asList(999,123,876,397);
-        assertEquals(new BallSorter().compare(integerList), 999);
+        assertEquals(new BallSorter().compare(integerList).toString(), "[123, 397, 876, 999]");
     }
 
-    @Test
+/*    @Test
     public void printSortedNumbers(){
         List<Integer> integerList = Arrays.asList(999,123,876,397);
         new BallSorter().compare(integerList);
-    }
+    }*/
 }
